@@ -1,0 +1,7 @@
+(()=>{
+const progress=document.getElementById('progress');const panes=[...document.querySelectorAll('.panel')];const presenter=document.getElementById('presentBtn');const indicator=document.getElementById('presentIndicator');const count=document.getElementById('slideCount');let active=0;
+function meter(){const size=document.documentElement.scrollHeight-innerHeight;progress.style.width=(size?scrollY/size*100:0)+'%'}window.addEventListener('scroll',meter,{passive:true});meter();
+function show(i){active=Math.max(0,Math.min(panes.length-1,i));panes.forEach((x,j)=>x.classList.toggle('active-slide',j===active));count.textContent=String(active+1).padStart(2,'0')+' / '+String(panes.length).padStart(2,'0');panes[active].scrollTop=0}
+function toggle(){document.body.classList.toggle('presenting');let on=document.body.classList.contains('presenting');indicator.hidden=!on;presenter.textContent=on?'✕ Sair':'▣ Apresentação';if(on){active=Math.max(0,panes.findIndex(x=>x.getBoundingClientRect().top>=-90));show(active)}else{panes[active].scrollIntoView({behavior:'auto'})}}
+presenter?.addEventListener('click',toggle);document.addEventListener('keydown',e=>{if(!document.body.classList.contains('presenting'))return;if(e.key==='Escape'){toggle();return}if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();show(active+1)}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(active-1)}});document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',()=>{if(document.body.classList.contains('presenting'))toggle()}));
+})();

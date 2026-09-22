@@ -1,0 +1,48 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#071a37"><title>MASTER 360° | Questionário de diagnóstico</title><link rel="stylesheet" href="style.css"><style>.form-page{background:#f3f7fc;min-height:100vh;padding:55px 0 90px}.form-hero{background:linear-gradient(110deg,#0b2f5c,#082042);color:#fff;border-radius:19px;padding:39px;margin-bottom:25px}.form-hero h1{font-size:clamp(29px,3.5vw,47px);max-width:820px}.form-hero p{font-size:14px;color:#bfd8f0;max-width:780px}.form-toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:20px 0 30px}.form-toolbar .btn{font-size:12px}.form-toolbar label{display:flex;gap:8px;align-items:center;font-size:12px;color:#446481}.form-toolbar input{accent-color:#1165b1}.form-box{padding:29px 31px;border:1px solid #d8e5f1;background:#fff;border-radius:15px;margin-bottom:17px}.form-box h2{font-size:24px;margin:0 0 6px}.form-box .hint{font-size:12px;color:#64809c;margin-bottom:18px}.form-box .field{display:block;border-top:1px solid #e6edf6;padding:18px 0}.field span{display:block;font-weight:720;font-size:14px;margin-bottom:10px}.field textarea{font:inherit;resize:vertical;min-height:70px;display:block;width:100%;border-radius:8px;border:1px solid #ccdeed;padding:11px 13px;color:#223e59;background:#fbfdff}.field textarea:focus{outline:2px solid #6eb5ee;outline-offset:1px}.form-page .footnote{color:#536d85;font-size:12px;margin-bottom:17px}.count{color:#5482aa;font-size:12px}.form-page .btn{border-radius:8px}@media(max-width:580px){.form-page{padding:28px 0 70px}.form-hero{padding:25px}.form-box{padding:21px}.form-toolbar{display:block}.form-toolbar>*{margin:5px 0}}</style></head><body><header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">M<span>°</span></span><span><b>MASTER</b><small>360° · DIAGNÓSTICO</small></span></a><div class="top-actions"><a class="btn small" href="index.html#diagnostico">← Voltar à proposta</a></div></header><main class="form-page"><div class="container"><div class="form-hero"><div class="eyebrow light">ETAPA 1 · INCLUÍDA NA CONTRATAÇÃO</div><h1>Questionário de diagnóstico empresarial</h1><p>Aplicação após a aprovação da proposta. Estas perguntas ajudam o consultor a conhecer a Master e a identificar o que precisa ser feito para estruturar licitações, site, redes sociais e vendas privadas. Não é necessário preenchê-las antes de contratar.</p><div class="form-toolbar"><a class="btn bright" href="documentos/questionario_diagnostico_master.docx" download>Baixar versão em Word ↓</a><a class="btn glass" href="documentos/checklist_documentos_master.docx" download>Documentos solicitados ↓</a></div></div><p class="footnote"><strong>Privacidade:</strong> este formulário funciona somente no seu navegador; não envia respostas para nenhum servidor. Ele não guarda respostas automaticamente. Preencha apenas informações empresariais não sigilosas. Para documentos, senhas, informações pessoais ou dados financeiros detalhados, combine um canal privado com o consultor.</p><form id="diagnosticoForm"><div id="questions"></div><div class="form-toolbar"><button class="btn" id="exportBtn" type="button">Salvar respostas em arquivo .txt ↓</button><button class="btn outline" type="button" onclick="window.print()">Imprimir / salvar como PDF ⎙</button><button class="btn outline" type="reset">Limpar campos</button></div></form><p class="footnote">Ao salvar um arquivo de respostas, confira seu conteúdo antes de compartilhá-lo com o consultor. O download é local e não representa envio de documentos.</p></div></main><script>
+const groups=[
+['A · Cadastro, histórico e administração',[
+'Qual é a razão social atual registrada no cartão CNPJ? Houve alterações recentes?',
+'Qual é o nome fantasia utilizado, o endereço cadastral e o local real de atendimento/produção?',
+'Quais são os CNAEs principal e secundários? Quais atividades constam do objeto social?',
+'Quem são os sócios, quem assina pela empresa e quem aprova propostas e investimentos?',
+'Qual é o regime tributário e quem é o contador responsável?',
+'Há alvarás, licenças ou registros específicos para as atividades desempenhadas?',
+'A empresa possui certificado digital, conta gov.br e e-mail corporativo acessíveis?']],
+['B · Serviços, obras e capacidade operacional',[
+'Quais serviços são executados hoje de fato? Quais são apenas possibilidades futuras?',
+'Qual é o serviço com maior faturamento e qual apresenta melhor margem?',
+'Quais obras de telhados, impermeabilização, serralheria, quadras, aço inox e calhas já foram concluídas?',
+'Quais obras possuem contrato, nota fiscal, fotos, medições, declaração de cliente e atestado?',
+'A empresa dispõe de oficina, estoque, veículos, ferramentas, EPIs e equipamentos próprios?',
+'Quantas pessoas atuam nas obras, com que vínculos e para quais atividades possuem treinamento?',
+'Quantas obras simultâneas consegue executar e em quais cidades pode atuar com a equipe atual?',
+'Quem elabora composições de custos, cronogramas, medições e orçamentos de obras?',
+'Qual foi o maior serviço já realizado, em valor, área executada e complexidade técnica?']],
+['C · Engenharia, segurança e comprovação técnica',[
+'A empresa possui registro no CREA-ES ou em outro conselho competente? Se não, qual sua situação atual?',
+'Quem é o engenheiro ou profissional habilitado que presta apoio? Qual seu registro e suas atribuições?',
+'Qual é a natureza do vínculo com o profissional: contrato continuado ou contratação por obra?',
+'Existem ARTs/RRTs ou documentos técnicos das obras executadas? Onde estão arquivados?',
+'Há atestados de capacidade técnica emitidos por clientes públicos ou privados?',
+'Existem projetos estruturais, memoriais, laudos ou relatórios técnicos de obras anteriores?',
+'Quais programas, treinamentos e procedimentos de segurança se aplicam às atividades da equipe?']],
+['D · Situação fiscal e condições para licitações',[
+'Quais certidões federais, estaduais, municipais, FGTS e trabalhistas já estão disponíveis?',
+'A empresa possui SICAF ativo, cadastro estadual no SIADES e acessos a outras plataformas?',
+'Já participou de licitações ou executou contratos públicos? Quais foram os resultados?',
+'Existe alguma sanção, impedimento, pendência documental ou litígio contratual conhecido?',
+'Quais atividades, portes de contrato e municípios do ES pretende atender inicialmente?',
+'Qual capital de giro pode ser reservado para insumos, equipe e deslocamento até o primeiro pagamento?',
+'O proprietário autoriza cada proposta e define preço com apoio técnico/contábil quando necessário?']],
+['E · Marketing, atendimento e investimento',[
+'A Master já possui domínio, site, Instagram, Facebook, Perfil da Empresa no Google e WhatsApp Business?',
+'Qual telefone comercial deverá aparecer no site? Qual será o e-mail de contato?',
+'Quais municípios e perfis de clientes privados deseja atender primeiro?',
+'Quantos contatos, visitas técnicas, orçamentos e contratos ocorrem aproximadamente por mês?',
+'Quem responderá leads e em quanto tempo? Quem realizará visitas e enviará propostas?',
+'Há autorização para usar as fotografias, vídeos e depoimentos de obras e clientes?',
+'Qual verba mensal a empresa pode disponibilizar para anúncios, domínio, hospedagem e ferramentas?',
+'Quais serviços devem ser priorizados nas páginas de captura e nos anúncios?']]];
+let n=0;const fields=[];const host=document.getElementById('questions');groups.forEach(([title,items])=>{let section=document.createElement('section');section.className='form-box';let h=document.createElement('h2');h.textContent=title;section.appendChild(h);let p=document.createElement('p');p.className='hint';p.textContent='Se a informação ainda não estiver disponível, deixe em branco: a pendência será organizada durante a consultoria.';section.appendChild(p);items.forEach(q=>{n++;let label=document.createElement('label');label.className='field';let t=document.createElement('span');t.textContent=String(n).padStart(2,'0')+'. '+q;let area=document.createElement('textarea');area.rows=2;area.name='q'+n;area.id='q'+n;area.setAttribute('aria-label',q);label.append(t,area);section.appendChild(label);fields.push({n,q,area})});host.appendChild(section)});
+document.getElementById('exportBtn').addEventListener('click',()=>{let text=['MASTER 360° | RESPOSTAS AO DIAGNÓSTICO','Preenchimento local; arquivo não enviado automaticamente.',''];fields.forEach(({n,q,area})=>{text.push(n+'. '+q);text.push('Resposta: '+(area.value.trim()||'[não informada]'));text.push('')});let blob=new Blob([text.join('\n')],{type:'text/plain;charset=utf-8'});let url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='respostas_diagnostico_master.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)});
+</script></body></html>
